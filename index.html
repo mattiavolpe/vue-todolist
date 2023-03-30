@@ -26,11 +26,13 @@
 
         <h1 class="text-center text-uppercase m-0 p-3">Cose da fare</h1>
 
-        <div class="userInput text-center d-flex align-items-center justify-content-center flex-wrap">
-          <input class="mx-2" type="text" v-model.trim="newTask" @keyup.enter="addToList()">
-          <button class="btn btn-primary mx-2" @click="addToList()">Aggiungi</button>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control border-primary" v-model.trim="newTask" @keyup.enter="addToList()" placeholder="Inserisci una nuova task" aria-label="Add" aria-describedby="addNewTask">
+          <button class="btn btn-outline-primary" type="button" @click="addToList()" id="addNewTask">
+            <i class="fa-solid fa-plus fa-fw"></i>
+          </button>
         </div>
-        <!-- /.userInput -->
+        <!-- /.input-group -->
         
         <div v-if="showWarning" class="text-danger text-center"><strong>{{errorMessage}}</strong></div>
 
@@ -38,8 +40,8 @@
           <ul class="list-unstyled">
             <li class="d-flex align-items-center justify-content-center py-2" :class="{'text-decoration-line-through': task.done}" v-for="(task, index) in tasks">
               <i class="fa-solid fa-circle fa-2xs"></i>
-              <span class="task_text" @click="markAsDone(index)">{{task.text}}</span>
-              <i @click="removeFromList(index)" class="fa-solid fa-square-xmark fa-fw mx-3"></i>
+              <span class="task_text fs-5" @click="markAsDone(index)">{{task.text}}</span>
+              <i @click="removeFromList(index)" class="fa-solid fa-square-xmark fa-fw ms-3 text-danger"></i>
             </li>
           </ul>
         </div>
