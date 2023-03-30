@@ -23,6 +23,8 @@ const { createApp } = Vue
   createApp({
     data() {
       return {
+        showWarning: false,
+        errorMessage: "Devi inserire almeno 3 caratteri",
         newTask: "",
         tasks: [
           {
@@ -61,11 +63,16 @@ const { createApp } = Vue
         this.tasks.splice(index, 1);
       },
       addToList() {
-        this.tasks.push({text: this.newTask, done: false});
-        this.newTask = "";
+        if(this.newTask.length >= 3) {
+          this.tasks.push({text: this.newTask, done: false});
+          this.newTask = "";
+          this.showWarning = false;
+        } else {
+          this.showWarning = true;
+        }
       },
       markAsDone(index) {
         this.tasks[index].done = !this.tasks[index].done;
       }
-    }
+    },
   }).mount('#app')
