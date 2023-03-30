@@ -38,9 +38,9 @@
 
         <div id="tasks">
           <ul class="list-unstyled">
-            <li class="d-flex align-items-center justify-content-center py-2" :class="{'text-decoration-line-through': task.done}" v-for="(task, index) in tasks">
+            <li class="d-flex align-items-center justify-content-center py-2" v-for="(task, index) in tasks">
               <i class="fa-solid fa-circle fa-2xs"></i>
-              <span class="task_text fs-5" @click="markAsDone(index)">{{task.text}}</span>
+              <span class="task_text fs-5" :class="{'text-decoration-line-through': task.done}" @click="markAsDone(index)">{{task.text}}</span>
               <i @click="removeFromList(index)" class="fa-solid fa-square-xmark fa-fw ms-3 text-danger"></i>
             </li>
           </ul>
