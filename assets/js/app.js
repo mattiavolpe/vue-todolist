@@ -36,7 +36,7 @@ const { createApp } = Vue
             done: false,
           },
           {
-            text: "Fare ezione su Zoom",
+            text: "Fare lezione su Zoom",
             done: false,
           },
           {
