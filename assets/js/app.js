@@ -23,6 +23,7 @@ const { createApp } = Vue
   createApp({
     data() {
       return {
+        newTask: "",
         tasks: [
           {
             text: "Fare colazione",
@@ -52,12 +53,19 @@ const { createApp } = Vue
             text: "Guardare Netflix / YouTube",
             done: false,
           },
-        ]
+        ],
       }
     },
     methods: {
       removeFromList(index) {
         this.tasks.splice(index, 1);
+      },
+      addToList() {
+        this.tasks.push({text: this.newTask, done: false});
+        this.newTask = "";
+      },
+      markAsDone(index) {
+        this.tasks[index].done = !this.tasks[index].done;
       }
     }
   }).mount('#app')

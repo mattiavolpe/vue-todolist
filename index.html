@@ -24,10 +24,18 @@
       
       <h1 class="text-center text-uppercase m-0 p-3">Cose da fare</h1>
 
+      <div class="userInput">
+        <input type="text" v-model="newTask" @keyup.enter="addToList()">
+        <button @click="addToList()">Aggiungi alla lista</button>
+      </div>
+      <!-- /.userInput -->
+
       <div id="tasks">
         <ul class="list-unstyled">
           <li :class="{'text-decoration-line-through': task.done}" v-for="(task, index) in tasks">
-            <i class="fa-solid fa-circle fa-2xs"></i>{{task.text}}<i @click="removeFromList(index)" class="fa-solid fa-square-xmark fa-fw"></i>
+            <i class="fa-solid fa-circle fa-2xs"></i>
+            <span @click="markAsDone(index)">{{task.text}}</span>
+            <i @click="removeFromList(index)" class="fa-solid fa-square-xmark fa-fw"></i>
           </li>
         </ul>
       </div>
