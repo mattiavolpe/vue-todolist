@@ -2,6 +2,11 @@
   transform: scale(0.5);
 }
 
+.fa-square-xmark {
+  cursor: pointer;
+}
+
 .task_text {
-  width: 20%;
+  width: 30%;
+  cursor: pointer;
 }
